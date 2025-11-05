@@ -139,5 +139,41 @@
 
         // Cambio automático cada 5 segundos
         setInterval(() => cambiarImagen(indice + 1), 5000);
+
+
+        //SCRIPT PARA MENU
+        
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionamos todos los enlaces con dropdown-toggle dentro de dropdown-submenu
+  const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu > .dropdown-toggle');
+
+  dropdownSubmenus.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault(); // Evita que el enlace navegue
+      e.stopPropagation(); // Evita cerrar otros menús
+      const submenu = this.nextElementSibling;
+
+      if (submenu.style.display === 'block') {
+        submenu.style.display = 'none';
+      } else {
+        // Cierra otros submenus abiertos
+        document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(sm) {
+          sm.style.display = 'none';
+        });
+        submenu.style.display = 'block';
+      }
+    });
+  });
+
+  // Cierra submenus al cerrar menú principal
+  document.querySelectorAll('.dropdown').forEach(function(dd) {
+    dd.addEventListener('hidden.bs.dropdown', function() {
+      dd.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(function(sm) {
+        sm.style.display = 'none';
+      });
+    });
+  });
+});
+
     </script>
 </html>
