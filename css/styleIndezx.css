@@ -441,3 +441,11 @@ footer p {
 }
 
 
+.titulo-proyecto {
+    text-align: center;     /* Centra el texto */
+    margin: 10px;           /* Margen de 10 píxeles por todos los lados */
+    font-family: 'Poppins', sans-serif; /* (opcional, para mantener estilo moderno) */
+    font-weight: 600;       /* (opcional, un poco más grueso para destacar) */
+}
+
+
